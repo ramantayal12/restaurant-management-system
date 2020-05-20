@@ -1,11 +1,8 @@
 #include<iostream>
+#include<vector>
+#include "option_1.h"
+#include "option_2.h"
 using namespace std;
-
-
-void option_1(){
-
-    cout<<"We provide the efficient way of billing in a Restaurant"<<endl;
-}
 
 
 int main(){
@@ -16,13 +13,21 @@ int main(){
 
 
     while( option != 5 ){
+
         cout<<"Option 1 :- About US "<<endl;
-        cout<<"Option 5 : Exit the Application "<<endl;
+        cout<<"Option 2 :- Restaurant Menu "<<endl;
+        cout<<"Option 5 :- Exit the Application "<<endl;
         cin>>option;
 
         if( option == 1 ){
             
-            option_1();
+            option1();
+            continue;
+
+        }
+        else if( option == 2 ){
+
+            option2();
             continue;
 
         }
