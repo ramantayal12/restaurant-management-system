@@ -49,8 +49,7 @@ void option2(){
     menu.push_back(menuItem("Green Salad",45));
     cout<<"Menu"<<endl;
 	for(int i=0;i<menu.size();i++){
-	cout<<i+1<<"."<<menu[i].itemName<<'\t'<<menu[i].cost<<endl;
-
+	    cout<<i+1<<"."<<menu[i].itemName<<'\t'<<menu[i].cost<<endl;
 	}
 	cout<<endl;
 }

@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include "option_1.h"
-#include "option_2.h"
+#include "option_3.h"
 using namespace std;
 
 
@@ -28,6 +28,13 @@ int main(){
         else if( option == 2 ){
 
             option2();
+            continue;
+
+        }
+        else if( option == 3 ){
+
+            int price = option3();
+            cout<<"Your Total Bill is "<<price<<endl;
             continue;
 
         }
