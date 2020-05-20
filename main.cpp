@@ -11,7 +11,7 @@ int main(){
 
     cout<<"Welcome to Restaurant Billing System "<<endl;
     int option = 0;
-    vector<menuItem> menu;
+    vector<menuItem> menu = option2();
 
 
     while( option != 5 ){
@@ -30,7 +30,6 @@ int main(){
         }
         else if( option == 2 ){
 
-            menu = option2();
             continue;
 
         }
