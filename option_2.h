@@ -1,9 +1,9 @@
 #include<iostream>
 #include<vector>
-#include "menu.h"
+#include "menu_header.h"
 using namespace std;
 
-void option2(){
+vector<menuItem> option2(){
     vector<menuItem> menu;
     menu.push_back(menuItem("Aloo Parantha" , 20));
     menu.push_back(menuItem("Mix Parantha", 35));
@@ -45,11 +45,13 @@ void option2(){
     menu.push_back(menuItem("Tawa Roti",5));
     menu.push_back(menuItem("Tandoori Roti",5));
     menu.push_back(menuItem("Cheese Naan",60));
-
     menu.push_back(menuItem("Green Salad",45));
+
     cout<<"Menu"<<endl;
 	for(int i=0;i<menu.size();i++){
 	    cout<<i+1<<"."<<menu[i].itemName<<'\t'<<menu[i].cost<<endl;
 	}
 	cout<<endl;
+
+    return menu;
 }

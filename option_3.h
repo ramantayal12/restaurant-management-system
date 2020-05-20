@@ -1,8 +1,8 @@
 #include<iostream>
-#include "option_2.h"
+#include<vector>
 using namespace std;
 
-int option3(){
+int option3(vector<menuItem> &menu){
 
     cout<<"Please provide your Order"<<endl;
     cout<<"While finished press 50  "<<endl;

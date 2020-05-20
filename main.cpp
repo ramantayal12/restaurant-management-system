@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include "option_1.h"
+#include "option_2.h"
 #include "option_3.h"
 using namespace std;
 
@@ -10,6 +11,7 @@ int main(){
 
     cout<<"Welcome to Restaurant Billing System "<<endl;
     int option = 0;
+    vector<menuItem> menu;
 
 
     while( option != 5 ){
@@ -27,13 +29,13 @@ int main(){
         }
         else if( option == 2 ){
 
-            option2();
+            menu = option2();
             continue;
 
         }
         else if( option == 3 ){
 
-            int price = option3();
+            int price = option3(menu);
             cout<<"Your Total Bill is "<<price<<endl;
             continue;
 
