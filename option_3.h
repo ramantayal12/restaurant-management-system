@@ -4,7 +4,6 @@ using namespace std;
 
 int option3(vector<menuItem> &menu){
 
-    cout<<"Please provide your Order"<<endl;
     cout<<"While finished press 50  "<<endl;
     vector<int> orders;
     int sel = 0, total_price = 0;

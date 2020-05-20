@@ -18,6 +18,7 @@ int main(){
 
         cout<<"Option 1 :- About US "<<endl;
         cout<<"Option 2 :- Restaurant Menu "<<endl;
+        cout<<"Option 3 :- Provide your Order"<<endl;
         cout<<"Option 5 :- Exit the Application "<<endl;
         cin>>option;
 
