@@ -5,10 +5,11 @@ using namespace std;
 class menuItem{
 public:
 	string itemName;
-	int cost;
-	menuItem( string a, int b ){
-		itemName = a;
-		cost = b;
+	int cost,time;
+	menuItem( string name, int cost, int time ){
+		this->itemName = name;
+		this->cost = cost;
+		this->time = time;
 	}
 };
 
