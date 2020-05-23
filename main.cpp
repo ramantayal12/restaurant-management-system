@@ -5,11 +5,8 @@
 #include "option_1.h"
 #include "option_2.h"
 #include "option_3.h"
-<<<<<<< HEAD
 #include <unistd.h>
 //#include <term.h>
-=======
->>>>>>> e2976902c4d0d7ff42f9b2f6f1366e9840f93769
 using namespace std;
 
 
@@ -23,20 +20,14 @@ int main(){
     cout<<"Welcome to Restaurant Billing System "<<endl;
     int option = 0;
     vector<menuItem> menu;
-<<<<<<< HEAD
 
-=======
->>>>>>> e2976902c4d0d7ff42f9b2f6f1366e9840f93769
 
 
     while( option != 5 ){
 
-<<<<<<< HEAD
 
 
-=======
            
->>>>>>> e2976902c4d0d7ff42f9b2f6f1366e9840f93769
         cout<<"Option 1 :- About US "<<endl;
         cout<<"Option 2 :- Show Restaurant Menu "<<endl;
         cout<<"Option 3 :- Provide your Order"<<endl;
@@ -51,10 +42,6 @@ int main(){
 
         }
         else if( option == 2 ){
-<<<<<<< HEAD
-
-            menu = option2();
-=======
             
             string line;
             fin.open("menu.txt",ios::in);
@@ -65,7 +52,6 @@ int main(){
                 cout<<line<<endl;
             }
             fin.close();
->>>>>>> e2976902c4d0d7ff42f9b2f6f1366e9840f93769
             continue;
 
         }
@@ -74,10 +60,6 @@ int main(){
             if( menu.size() == 0 ){
                 menu = option2();
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> e2976902c4d0d7ff42f9b2f6f1366e9840f93769
             vector<int> aa = option3(menu);
             int price = aa[0], time = aa[1];
             cout<<"Your Total Bill is "<<price<<endl;
