@@ -11,9 +11,9 @@ using namespace std;
 int main(){
 
 
-    //ifstream fin;
-    //ofstream fout;
-    //fout.open("menu.txt");
+    ifstream fin;
+    ofstream fout;
+    fout.open("menu.txt");
     //fin.open("menu.txt");
     cout<<"Welcome to Restaurant Billing System "<<endl;
     int option = 0;
@@ -38,15 +38,15 @@ int main(){
         }
         else if( option == 2 ){
             
-            string item;
-            //fin.open("menu.txt");
-            menu = option2();
-            /*
-            while( fin ){
-                getline(cin,line);
+            string line;
+            fin.open("menu.txt",ios::in);
+            //menu = option2();
+            
+            while( !fin.eof() ){
+                getline(fin,line);
                 cout<<line<<endl;
             }
-            */
+            fin.close();
             continue;
 
         }
@@ -63,6 +63,7 @@ int main(){
 
         }
         else if( option == 4 ){
+
             cout<<"Please Enter Your Password"<<endl;
             string pass;
             cin>>pass;
@@ -74,13 +75,10 @@ int main(){
                 cin>>sel;
                 if( sel == 1 ){
                     cout<<"Please Enter Food-Item to Add "<<endl;
-                    string name; cin>>name;
-                    int price, time;
-                    cout<<"Please Enter food item name "<<endl;
-                    cin>>price;
-                    cout<<"Please Enter Price and time "<<endl;
-                    cin>>time;
-                    //fout<<name<<" "<<price<<" "<<time<<endl;
+                    cout<<"Please Enter food item Name, Price and Time "<<endl;
+                    string name; 
+                    getline(cin,name);
+                    fout<<name<<endl;
                     
                 }
                 else if( sel == 2 ){
@@ -95,10 +93,11 @@ int main(){
                 
             }
             else{
+
                 cout<<"Wrong Password "<<endl;
                 
             }
-            
+            continue;
             
         }
         else if( option == 5 ){
