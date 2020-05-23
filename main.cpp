@@ -5,7 +5,7 @@
 #include "option_2.h"
 #include "option_3.h"
 #include <unistd.h>
-#include <term.h>
+//#include <term.h>
 using namespace std;
 
 
@@ -21,13 +21,13 @@ int main(){
     cout<<"Welcome to Restaurant Billing System "<<endl;
     int option = 0;
     vector<menuItem> menu;
-    
+
 
 
     while( option != 5 ){
 
-        
-        
+
+
         cout<<"Option 1 :- About US "<<endl;
         cout<<"Option 2 :- Show Restaurant Menu "<<endl;
         cout<<"Option 3 :- Provide your Order"<<endl;
@@ -35,13 +35,13 @@ int main(){
         cin>>option;
 
         if( option == 1 ){
-            
+
             option1();
             continue;
 
         }
         else if( option == 2 ){
-            
+
             menu = option2();
             continue;
         }
@@ -50,7 +50,7 @@ int main(){
             if( menu.size() == 0 ){
                 menu = option2();
             }
-            
+
             vector<int> aa = option3(menu);
             int price = aa[0], time = aa[1];
             cout<<"Your Total Bill is "<<price<<endl;
@@ -63,7 +63,7 @@ int main(){
             cout<<" Thank You "<<endl;
             break;
         }
-        
+
     }
     cout<<"Please rate our Services "<<endl;
     cout<<" 1 :- Very Bad "<<endl;
