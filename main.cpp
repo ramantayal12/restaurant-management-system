@@ -13,10 +13,8 @@ using namespace std;
 int main(){
 
 
-    ifstream fin;
-    ofstream fout;
-    fout.open("menu.txt");
-    //fin.open("menu.txt");
+    fstream file;
+    file.open("menu.txt");
     cout<<"Welcome to Restaurant Billing System "<<endl;
     int option = 0;
     vector<menuItem> menu;
@@ -44,14 +42,14 @@ int main(){
         else if( option == 2 ){
             
             string line;
-            fin.open("menu.txt",ios::in);
             //menu = option2();
             
-            while( !fin.eof() ){
-                getline(fin,line);
+            while( !file.eof() ){
+                getline(file,line);
                 cout<<line<<endl;
             }
-            fin.close();
+            file.close();
+
             continue;
 
         }
@@ -60,6 +58,7 @@ int main(){
             if( menu.size() == 0 ){
                 menu = option2();
             }
+
             vector<int> aa = option3(menu);
             int price = aa[0], time = aa[1];
             cout<<"Your Total Bill is "<<price<<endl;
@@ -79,20 +78,25 @@ int main(){
                 int sel = 0;
                 cin>>sel;
                 if( sel == 1 ){
-                    cout<<"Please Enter Food-Item to Add "<<endl;
+
+                    
                     cout<<"Please Enter food item Name, Price and Time "<<endl;
-                    string name; 
-                    getline(cin,name);
-                    fout<<name<<endl;
+                    string name;
+                    while( file ){
+                        getline(cin,name);
+                        cout<<"Enter 'stop' to exit "<<endl;
+                        if( name == "stop" ){
+                            break;
+                        }
+                        file<<name<<endl;
+                    }
+                    
                     
                 }
                 else if( sel == 2 ){
                     cout<<"Please Enter Food-Item Number to Delete "<<endl;
                     int x, i = 0;
                     cin>>x;
-                    
-                }
-                else{
                     
                 }
                 
