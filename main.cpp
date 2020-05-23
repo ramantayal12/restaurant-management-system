@@ -5,13 +5,10 @@
 #include "option_1.h"
 #include "option_2.h"
 #include "option_3.h"
-#include <unistd.h>
-//#include <term.h>
 using namespace std;
 
 
 int main(){
-
 
     fstream file;
     file.open("menu.txt");
@@ -19,12 +16,7 @@ int main(){
     int option = 0;
     vector<menuItem> menu;
 
-
-
     while( option != 5 ){
-
-
-
            
         cout<<"Option 1 :- About US "<<endl;
         cout<<"Option 2 :- Show Restaurant Menu "<<endl;
