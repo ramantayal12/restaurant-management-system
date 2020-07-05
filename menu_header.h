@@ -2,13 +2,14 @@
 #include<iostream>
 using namespace std;
 
-class menuItem{
+class menu{
 public:
-	string itemName;
-	int cost,time;
-	menuItem( string name, int cost, int time ){
-		this->itemName = name;
-		this->cost = cost;
+	string foodName,id;
+	string price,time;
+	menu( string id,string name, string price, string time ){
+		this->id = id;
+		this->foodName = name;
+		this->price = price;
 		this->time = time;
 	}
 };
