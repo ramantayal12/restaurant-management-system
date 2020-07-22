@@ -1,17 +1,30 @@
 #include<iostream>
-#include<sqlite3.h>
+#include "sqlite3.h"
 #include<vector>
-#include "menu_header.h"
 #include "option_1.h"
 using namespace std;
 
+class menu{
+public:
+	string foodName,id;
+	string price,time;
+	menu(){
+	}
+	menu( string id,string name, string price, string time ){
+		this->id = id;
+		this->foodName = name;
+		this->price = price;
+		this->time = time;
+	}
+};
+
+
 vector<menu> order;
 
-static int callback(void *NotUsed, int argc, char **argv, char **azColName){
+static int callback(void *NotUsed, int argc, char **argv, char **azColName){       		// Just Making a duplicate copy of the menuitems in order vector
 
-    
     menu mn_it;
-    for(int i=0; i<argc; i++){
+    for(int i=0; i<argc ; i++){
         cout << azColName[i] << " : " << argv[i] << endl;
         if( argc == 0 ){
             mn_it.id = argv[i];
@@ -41,7 +54,7 @@ int main(){
     int rc = sqlite3_open("items.db",&db);
     cout<<"Welcome to Restaurant Billing System "<<endl;
     int option = 0;
-    vector<int> cus_orders;
+    vector<int> cus_orders;											// To store current order of customer
 
     while( option != 6 ){
            
@@ -62,7 +75,7 @@ int main(){
         else if( option == 2 ){
         
             string sql_statement = " SELECT * FROM items;";
-            sqlite3_exec(db,sql_statement.c_str(),callback,NULL,NULL);
+            sqlite3_exec(db,sql_statement.c_str(),callback,NULL,NULL);					
             
             continue;
 
@@ -75,15 +88,15 @@ int main(){
             
 
             int total_price = 0, estimated_time = 0;
-            cus_orders.clear();
+            cus_orders.clear();                       		//Clearing orders of previous customers
             string id_number,flag;
             while( flag != "n" ){
                 
                 int index = -1;
                 cin>>id_number;
-                bool flag = false;
+                bool flag = false;						   // Finding the index of food item to be ordered
                 for(int i=0;i<order.size();i++){
-                    if( id_number == order[i][0]){
+                    if( id_number == order[i].id){
                         index = i;
                         flag = true;
                     }
@@ -94,7 +107,7 @@ int main(){
                     continue;
                 }
 
-                cus_orders.push_back(index);
+                cus_orders.push_back(index);              // Adding that index of food item to customer order
                 
                 cout<<" Want to Order More "<<endl;
                 cout<<" y / n "<<endl;
@@ -121,15 +134,15 @@ int main(){
                     string name,price,time;
                     cout<<"Please Enter food Name, Price and Time "<<endl;
                     cin>>name>>price>>time;
-                    string sql_statement = "INSERT INTO items (food_name,price,time) values (' ";
+                    string sql_statement = "INSERT INTO items (food_name,price,time) values (' ";                  // Creating a SQL statement to make new entry of food item
                     sql_statement += name + "' ,";
                     sql_statement += price + ",";
                     sql_statement += time + ");";
 
-                    rc = sqlite3_exec(db, sql_statement.c_str(), NULL, 0, &zErrMsg);
+                    rc = sqlite3_exec(db, sql_statement.c_str(), NULL, 0, &zErrMsg);                       // If it executes perfectly ,then only it will return SQLITE_OK
                     if( rc!=SQLITE_OK )
                     {
-                        cout<<"SQL error: "<<sqlite3_errmsg(db)<<"\n";
+                        cout<<"SQL error: "<<sqlite3_errmsg(db)<<"\n";									   //  Printing the error returned
                         sqlite3_free(zErrMsg);
                         break;
                     }
@@ -142,7 +155,7 @@ int main(){
 
                         cout<<"Please Enter food Name, Price and Time "<<endl;
                         cin>>name>>price>>time;
-                        sql_statement = "INSERT INTO items (food_name,price,time) values (' ";
+                        sql_statement = "INSERT INTO items (food_name,price,time) values (' ";            // 'INSERT' Keyword is used to insert new entry
                         sql_statement += name + "' ,";
                         sql_statement += price + ",";
                         sql_statement += time + ");";
@@ -163,7 +176,7 @@ int main(){
                     string x;
                     cin>>x;
 
-                    string sql_statement = "DELETE FROM items WHERE Food_ID =  ";
+                    string sql_statement = "DELETE FROM items WHERE Food_ID =  ";						//'Delete' Keyword is used to delete entry 
                     sql_statement += x + ";";
                     rc = sqlite3_exec(db, sql_statement.c_str(), NULL, 0, &zErrMsg);
                     if( rc!=SQLITE_OK )
@@ -184,23 +197,12 @@ int main(){
             
         }
         else if( option == 5 ){
-            // this function is yet to implement 
+            // this function is yet to implement
             // with implementaion of this we can even print the receit genrated
         }
         else if( option == 6 ){
 
             cout<<" Thank You "<<endl;
-            /*
-            cout<<"Please rate our Services "<<endl;
-            cout<<" 1 :- Very Bad "<<endl;
-            cout<<" 2 :- Bad "<<endl;
-            cout<<" 3 :- Average "<<endl;
-            cout<<" 4 :- Good "<<endl;
-            cout<<" 5 :- Excellent "<<endl;
-            int feedback = 0;
-            cin>>feedback;
-            cout<<"Thanks for Your Feedback"<<endl;
-            */
             break;
         }
 
