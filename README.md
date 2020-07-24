@@ -13,6 +13,6 @@ Description of Data Base Files :
 it contains table named "items"
 and the table itself contains columns:
 a. Food_ID
-a. Food_name 
-b. price
-c. time
+b. Food_Name 
+c. Price
+d. Time
